@@ -1,0 +1,12 @@
+//custom styles
+@import "shared/scss/mixins";
+@import "shared/scss/variables";
+@import "shared/scss/general";
+@import "shared/scss/fonts";
+
+//components
+@import "pages/App";
+@import "pages/Login/Login";
+@import "pages/Products/Products";
+@import "pages/Welcome/Welcome";
+

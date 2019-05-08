@@ -2,8 +2,6 @@ import React, { Component, Fragment } from 'react';
 import  {BrowserRouter as Router,
   Route, Switch} from "react-router-dom";
 
-import './App.scss';
-
 import Welcome from './Welcome/Welcome';
 
 class App extends Component {

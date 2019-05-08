@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import './Welcome.scss';
 
 
 export default class Welcome extends Component {
@@ -8,7 +7,7 @@ export default class Welcome extends Component {
       <div className="Welcome">
         <header className="navbar">
           <div className="logo-container">
-            <span>WOLOX</span>
+            <h1>W<span>O</span>L<span>O</span>X</h1>
           </div>
           <ul className="menu-container">
             <li className="menu-item"><a href="">Inicio</a></li>

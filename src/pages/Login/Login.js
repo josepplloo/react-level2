@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
-import './Products.scss';
 
-export default class Products extends Component {
+import React, { Component } from 'react';
+
+export default class Login extends Component {
   render() {
     return (
       <div className="App">
