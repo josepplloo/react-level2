@@ -1,8 +1,33 @@
 import React, { Component } from 'react';
 
+import hero from './img/hero.png';
+import technologies from './img/technologies.png';
+import social from './img/social.png';
+
+import imagesLoader from './img/images';
+
+const {home, techs, benefits, requirements, Products} = '#';
 
 export default class Welcome extends Component {
+
+  /**
+   * Return the info for render the image.
+   * @param {String} id 
+   */
+  getImageByID(id) {
+    const image = ['',''];
+    imagesLoader().forEach(image => {
+      if(image.id === id){
+        return [image.src, image.alt]
+      }
+    });
+    return image;
+  }
+  
   render() {
+    const clock = this.getImageByID('clock');
+    console.log(clock);
+    
     return (
       <div className="Welcome">
         <header className="navbar">
@@ -10,40 +35,41 @@ export default class Welcome extends Component {
             <h1>W<span>O</span>L<span>O</span>X</h1>
           </div>
           <ul className="menu-container">
-            <li className="menu-item"><a href="">Inicio</a></li>
-            <li className="menu-item"><a href="">Tecnologías</a></li>
-            <li className="menu-item"><a href="">Beneficios</a></li>
-            <li className="menu-item"><a href="">Requerimientos</a></li>
-            <li className="menu-item"><a href="">Productos</a></li>
+            <li className="menu-item"><a href={home}>Inicio</a></li>
+            <li className="menu-item"><a href={techs}>Tecnologías</a></li>
+            <li className="menu-item"><a href={benefits}>Beneficios</a></li>
+            <li className="menu-item"><a href={requirements}>Requerimientos</a></li>
+            <li className="menu-item"><a href={Products}>Productos</a></li>
           </ul>
           <button className="login-button" type="button">
             Login
-          </button>  
+          </button>
         </header>
         <div className="hero">
           <p className="hero__welcome-text">
-            Bienvenido a tu entrevista técnica en Wolox
+            Bienvenido a tu <span>Entrevista técnica</span> en <span>Wolox</span>
           </p>
-          <img src="./img/hero.jpg" alt="hero image" className="hero__welcome-image"/>
+          <img src={hero} alt="People and a computer" className="hero__welcome-image"/>
         </div>
         <div className="technologies">
           <div className="technologies-cloud">
             <p className="technologies-cloud__text">
-              Estamos buscando para incorporar gente increíble para estas tecnologías:
+              Estamos buscando<br/> para incorporar gente<br/> increíble para estas<br/> tecnologías:
             </p>          
-            <img src="./img/technologies" alt="Programing languajes" className="technologies-cloud__img"/>
+            <img src={technologies} alt="Programing languajes" className="technologies-cloud__img"/>
           </div>
           <div className="technologies-social">
-            <img src="./img/technologies" alt="Social banner" className="technologies-social__img"/>
+            <img src={social} alt="Social banner" className="technologies-social__img"/>
             <p className="technologies-social__text">
-              Estamos buscando para incorporar gente increíble para estas tecnologías:
+              Trabajamos para<br/> <span>convertir</span> <span>ideas</span> en<br/> productos.
             </p>          
           </div>
         </div>
         <div className="benefits">
+          <p>Entre los beneficios que ofrecemos se encuentran <span>;)</span></p>
           <ul className="benefits-list">
             <li className="benefits-item">
-              <img src="/img/benefits1.png" alt="flexibility" className="benefits-item__img"/>
+              <img src={clock[0]} alt={clock[1]} className="benefits-item__img"/>
               <p>Flexibilidad Horaria</p>
             </li>
             <li className="benefits-item">
@@ -74,7 +100,7 @@ export default class Welcome extends Component {
             <li className="requirements-items">
               <p className="requirements-item__text">
                 Estudiantes avanzados 
-                o recibidos de carreras del rubro informático,
+                o recibidos de carreras del rubro<br/> informático,
                 sistemas o eléctronicos
               </p>
             </li>
@@ -93,7 +119,7 @@ export default class Welcome extends Component {
         </div>
         <footer className="footer">
           <h1 className="footer-title">Gracias por 
-            completar el ejercicio
+            <span> completar el ejercicio</span>
           </h1>
           <h2 className="footer-subtitle">
             Te invitamos a ver mas información

@@ -42,8 +42,152 @@
 
 .login-button {
   background-color: transparent;
-  border: 0.1rem solid $login-color;
+  border: 0.05rem solid $login-color;
   border-radius: 1rem;
   color: $login-color;
+  cursor: pointer;
+  font-size: .9rem;
   padding: .4rem 3rem;
+
+  &:hover {
+    background-color: $login-color;
+    color: $white-color;
+  }
+}
+
+.hero {
+  @include flexbox();
+  align-items: center;
+  justify-content: space-between;
+  padding: 3rem;
+
+  &__welcome-text {
+      font-size: 3rem;
+      font-weight: 300;
+      margin-right: 5rem;
+      line-height: 1.3;
+
+    & span:nth-child(2) {
+      font-weight: bolder;
+      color: $green-color;
+      &::before{ content: '\A'; white-space: pre;}
+    }
+    & span:nth-child(1) {
+      font-weight: bolder;
+      &::before{ content: '\A'; white-space: pre;}
+    }
+  }
+}
+
+.technologies {
+  &-cloud {
+  @include flexbox();
+  align-items: center;
+  justify-content: space-between;
+  padding: 3rem; 
+
+    &__text {
+      font-size: 2rem;
+      font-weight: 500;
+      letter-spacing: .1rem;
+      line-height: 1.3;
+    }
+  }
+
+  &-social {
+    @include flexbox();
+    align-items: center;
+    background-color: $social-bg-color;
+    justify-content: space-between;
+
+    &__text {
+      font-size: 2rem;
+      font-weight: 500;
+      letter-spacing: .1rem;
+      line-height: 1.3;
+      margin-right: 5rem;
+
+      & span:nth-child(3) {
+        color: $green-color;
+        font-weight: bolder;
+      }
+      & span:nth-child(2) {
+        color: $blue-color;
+        font-weight: bolder;
+      }
+    }
+  } 
+}
+
+.requirements {
+  @include flexbox();
+  align-items: center;
+  justify-content: space-evenly;
+  padding: 3rem; 
+
+  &-title {
+    font-size: 1.3rem;
+    font-weight: bolder;
+  }
+
+  &-list {
+    @include flexbox();
+    justify-content: space-evenly;
+    flex-direction: column;
+  }
+
+  &-items {
+    @include flexbox();
+    align-items: center;
+    margin-bottom: 1rem;
+
+    &::before {
+      content: "\2022";
+      color: $green-color;
+      font-weight: bolder;
+      font-size: 2.6rem;
+      width: 1rem;
+      margin-right: 1rem;
+    }
+
+    &:nth-child(2) {
+      &::before {
+        color: $black-color;
+      }
+    }
+
+    &:nth-child(3) {
+      &::before {
+        color: $blue-color;
+      }
+    }
+
+    &__text {
+      font-size: 2rem;
+      font-weight: 500;
+    }
+  }
+}
+
+.footer {
+  @include flexbox();
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+  padding: 2rem;
+
+  &-title {
+    font-size: 2rem;
+    font-weight: bolder;
+
+    & span {
+      color: $blue-color;
+    }
+  }
+  &__wolox-logo {
+    font-size: 1.5rem;
+    font-weight: lighter;
+    letter-spacing: 1rem;
+    margin-top: 3rem;
+  }
 }
