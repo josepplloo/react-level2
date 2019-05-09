@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom'
 
-import hero from './img/hero.png';
-import technologies from './img/technologies.png';
-import social from './img/social.png';
 
 import imagesLoader from './img/images';
 
@@ -15,19 +13,26 @@ export default class Welcome extends Component {
    * @param {String} id 
    */
   getImageByID(id) {
-    const image = ['',''];
-    imagesLoader().forEach(image => {
+    let imageInfo = [];
+    imagesLoader().forEach(image => {      
       if(image.id === id){
-        return [image.src, image.alt]
+        imageInfo = [image.src, image.alt]
       }
     });
-    return image;
+    return imageInfo;
   }
   
   render() {
-    const clock = this.getImageByID('clock');
-    console.log(clock);
-    
+    const hero = this.getImageByID('hero');
+    const technologies = this.getImageByID('technologies');
+    const social = this.getImageByID('social');
+    const clock = this.getImageByID('clock');  
+    const desk = this.getImageByID('desk');
+    const workshop = this.getImageByID('workshop');
+    const snacks = this.getImageByID('snacks');
+    const wfh = this.getImageByID('wfh');
+    const brain = this.getImageByID('brain');
+
     return (
       <div className="Welcome">
         <header className="navbar">
@@ -39,62 +44,62 @@ export default class Welcome extends Component {
             <li className="menu-item"><a href={techs}>Tecnologías</a></li>
             <li className="menu-item"><a href={benefits}>Beneficios</a></li>
             <li className="menu-item"><a href={requirements}>Requerimientos</a></li>
-            <li className="menu-item"><a href={Products}>Productos</a></li>
+            <li className="menu-item"><Link to="/products">Productos</Link></li>
           </ul>
-          <button className="login-button" type="button">
-            Login
-          </button>
+          <span className="login-button" type="button">
+          <Link to="/login">Login</Link>
+          </span>
         </header>
         <div className="hero">
           <p className="hero__welcome-text">
             Bienvenido a tu <span>Entrevista técnica</span> en <span>Wolox</span>
           </p>
-          <img src={hero} alt="People and a computer" className="hero__welcome-image"/>
+          <img src={hero[0]} alt={hero[1]} className="hero__welcome-image"/>
         </div>
         <div className="technologies">
           <div className="technologies-cloud">
             <p className="technologies-cloud__text">
               Estamos buscando<br/> para incorporar gente<br/> increíble para estas<br/> tecnologías:
             </p>          
-            <img src={technologies} alt="Programing languajes" className="technologies-cloud__img"/>
+            <img src={technologies[0]} alt={technologies[1]} className="technologies-cloud__img"/>
           </div>
           <div className="technologies-social">
-            <img src={social} alt="Social banner" className="technologies-social__img"/>
+            <img src={social[0]} alt={social[1]} className="technologies-social__img"/>
             <p className="technologies-social__text">
               Trabajamos para<br/> <span>convertir</span> <span>ideas</span> en<br/> productos.
             </p>          
           </div>
         </div>
         <div className="benefits">
-          <p>Entre los beneficios que ofrecemos se encuentran <span>;)</span></p>
+          <p className="benefits__title">Entre los beneficios que ofrecemos se encuentran <span>;)</span></p>
           <ul className="benefits-list">
             <li className="benefits-item">
               <img src={clock[0]} alt={clock[1]} className="benefits-item__img"/>
-              <p>Flexibilidad Horaria</p>
+              <p className="benefits-item__text">Flexibilidad Horaria</p>
             </li>
             <li className="benefits-item">
-              <img src="/img/benefits2.png" alt="Home Office" className="benefits-item__img"/>
-              <p>Work Office</p>
+              <img src={desk[0]} alt={desk[1]} className="benefits-item__img"/>
+              <p className="benefits-item__text">Work Office</p>
             </li>
             <li className="benefits-item">
-              <img src="/img/benefits3.png" alt="Workshops" className="benefits-item__img"/>
-              <p>Capacitaciones y Workshops</p>
+              <img src={workshop[0]} alt={workshop[1]} className="benefits-item__img"/>
+              <p className="benefits-item__text">Capacitaciones y Workshops</p>
             </li>
             <li className="benefits-item">
-              <img src="/img/benefits4.png" alt="Snaks" className="benefits-item__img"/>
-              <p>Snaks, frutas y bebidas gratis</p>
+              <img src={snacks[0]} alt={snacks[0]} className="benefits-item__img"/>
+              <p className="benefits-item__text">Snaks, frutas y bebidas gratis</p>
             </li>
             <li className="benefits-item">
-              <img src="/img/benefits5.png" alt="Work From Home" className="benefits-item__img"/>
-              <p>Semana Remota</p>
+              <img src={wfh[0]} alt={wfh[1]} className="benefits-item__img"/>
+              <p className="benefits-item__text">Semana Remota</p>
             </li>
             <li className="benefits-item">
-              <img src="/img/benefits6.png" alt="cut edge" className="benefits-item__img"/>
-              <p>Trabajar en últimas tecnologías</p>
+              <img src={brain[0]} alt={brain[1]} className="benefits-item__img"/>
+              <p className="benefits-item__text">Trabajar en últimas tecnologías</p>
             </li>
           </ul>
         </div>  
-        <div className="requirements">
+        <div id="requirements" className="requirements">
           <h2 className="requirements-title">Requerimientos</h2>
           <ul className="requirements-list">
             <li className="requirements-items">
