@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 
 import imagesLoader from './img/images';
 
-const {home, techs, benefits, requirements, Products} = '#';
+const {home, techs, benefits, requirements} = '#';
 
 export default class Welcome extends Component {
 
@@ -46,9 +46,12 @@ export default class Welcome extends Component {
             <li className="menu-item"><a href={requirements}>Requerimientos</a></li>
             <li className="menu-item"><Link to="/products">Productos</Link></li>
           </ul>
-          <span className="login-button" type="button">
-          <Link to="/login">Login</Link>
-          </span>
+          
+          <Link to="/login">
+          <button className="login-button" type="button">
+            Login
+          </button>
+          </Link>
         </header>
         <div className="hero">
           <p className="hero__welcome-text">
