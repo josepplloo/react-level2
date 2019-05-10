@@ -44,7 +44,7 @@ export default class Welcome extends Component {
             <li className="menu-item"><a href={techs}>Tecnologías</a></li>
             <li className="menu-item"><a href={benefits}>Beneficios</a></li>
             <li className="menu-item"><a href={requirements}>Requerimientos</a></li>
-            <li className="menu-item"><Link to="/products">Productos</Link></li>
+            <li className="menu-item"><Link to="/productos">Productos</Link></li>
           </ul>
           
           <Link to="/login">

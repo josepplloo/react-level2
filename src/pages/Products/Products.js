@@ -1,18 +1,25 @@
 import React, { Component } from 'react';
 
+import {getProducts} from '../../utils/products'
+
 export default class Products extends Component {
 
-  handleLogout(event) {
+  handleLogout() {
     this.props.onAutenticated('');
   }
 
+  componentDidMount() {
+    const products = getProducts();
+    console.log(products);
+  }
 
   render() {
+
     return (
       <div className="App">
         <header className="App-header">
           <button id="logout" type="button"
-          onClick={(event) => this.handleLogout(event)}>
+          onClick={() => this.handleLogout()}>
           Logout
           </button>
           <p>

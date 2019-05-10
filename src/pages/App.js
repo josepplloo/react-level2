@@ -27,7 +27,7 @@ class App extends Component {
       return (<Welcome />);
     }  }
 
-  products() {
+  selectAPage() {
     if(this.state.userName) {
       return (<Products 
         onAutenticated={(user) => this.handleAutentication(user)}
@@ -49,10 +49,10 @@ class App extends Component {
       <Router>
         <Fragment>
             <Switch>
-              <Route exact path="/" render={() => this.welcome()}/>
-              <Route path="/products" render={() => this.products()}/>
+              <Route exact path="/" render={() => this.selectAPage()}/>
+              <Route path="/productos" render={() => this.selectAPage()}/>
               <Route path="/login" render={() => (this.state.userName ?
-                <Redirect to="/products" />
+                <Redirect to="/productos" />
                 :this.login(this.state) )}/>
               <Route render={() => <h1>404 Page not found</h1>}/>
             </Switch>

@@ -36,8 +36,8 @@ export default class Login extends React.Component {
   render() {
     return (
       <Fragment>
-      <h1>Registro ;)</h1>
-      <form onSubmit={(event) => this.handleSubmit(event)}>
+      <h1 className="login-title">Registro ;)</h1>
+      <form onSubmit={(event) => this.handleSubmit(event)} className="login-container">
         <div>
           <label htmlFor="username">Nombres: </label>
           <input id="username" required/>

@@ -42,3 +42,12 @@ a {
 button {
 	border: none;
 }
+
+input, select {
+  border: 0.1rem solid $login-color;
+  border-radius: 0.5rem;
+  color: $login-color;
+  font-size: 1rem;
+  padding:  0.5rem;
+  margin: 1rem 0 1rem 1rem;
+}
