@@ -1,16 +1,28 @@
 import React, { Component } from 'react';
 
-import {getProducts} from '../../utils/products'
+import {getProducts, WithLoading, List} from '../../utils/products'
+
+const ListWithLoading = WithLoading(List);
 
 export default class Products extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      loading: false,
+      products: null,
+    }
+  }
 
   handleLogout() {
     this.props.onAutenticated('');
   }
 
   componentDidMount() {
-    const products = getProducts();
-    console.log(products);
+    this.setState({loading:true})    
+    getProducts().then(data => data)
+    .then(products => {
+      this.setState({ loading: false, products: products });
+    });
   }
 
   render() {
@@ -34,6 +46,10 @@ export default class Products extends Component {
             Learn React
           </a>
         </header>
+        <section>
+        <ListWithLoading isLoading={this.state.loading} 
+        products={this.state.products} />
+        </section>
       </div>
     );
   }

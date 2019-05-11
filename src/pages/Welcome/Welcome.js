@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
-
+import { NavHashLink as NavLink } from 'react-router-hash-link';
 
 import imagesLoader from './img/images';
-
-const {home, techs, benefits, requirements} = '#';
 
 export default class Welcome extends Component {
 
@@ -35,15 +33,15 @@ export default class Welcome extends Component {
 
     return (
       <div className="Welcome">
-        <header className="navbar">
+        <header id ="home" className="navbar">
           <div className="logo-container">
             <h1>W<span>O</span>L<span>O</span>X</h1>
           </div>
           <ul className="menu-container">
-            <li className="menu-item"><a href={home}>Inicio</a></li>
-            <li className="menu-item"><a href={techs}>Tecnologías</a></li>
-            <li className="menu-item"><a href={benefits}>Beneficios</a></li>
-            <li className="menu-item"><a href={requirements}>Requerimientos</a></li>
+            <li className="menu-item"><NavLink to="#home">Inicio</NavLink></li>
+            <li className="menu-item"><NavLink to="#techs">Tecnologías</NavLink></li>
+            <li className="menu-item"><NavLink to="#benefits">Beneficios</NavLink></li>
+            <li className="menu-item"><NavLink to="#requirements">Requerimientos</NavLink></li>
             <li className="menu-item"><Link to="/productos">Productos</Link></li>
           </ul>
           
@@ -59,7 +57,7 @@ export default class Welcome extends Component {
           </p>
           <img src={hero[0]} alt={hero[1]} className="hero__welcome-image"/>
         </div>
-        <div className="technologies">
+        <div id="techs" className="technologies">
           <div className="technologies-cloud">
             <p className="technologies-cloud__text">
               Estamos buscando<br/> para incorporar gente<br/> increíble para estas<br/> tecnologías:
@@ -73,7 +71,7 @@ export default class Welcome extends Component {
             </p>          
           </div>
         </div>
-        <div className="benefits">
+        <div id="benefits" className="benefits">
           <p className="benefits__title">Entre los beneficios que ofrecemos se encuentran <span>;)</span></p>
           <ul className="benefits-list">
             <li className="benefits-item">
