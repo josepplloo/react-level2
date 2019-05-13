@@ -1,6 +1,7 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 
 import {getProducts, WithLoading, List} from '../../utils/products'
+import {getUser} from '../../utils/auth'
 
 const ListWithLoading = WithLoading(List);
 
@@ -12,9 +13,27 @@ export default class Products extends Component {
       products: null,
     }
   }
+  //TODO
+  //use redux
 
   handleLogout() {
     this.props.onAutenticated('');
+  }
+
+
+  handleSearchInput(event) {
+    let updatedList = this.state.products;
+  
+    updatedList = this.state.products.filter(function(product) {
+      return product.name.toLowerCase()
+        .search(event.target.value.toLowerCase()) !== -1;
+    });
+
+    this.setState({products: updatedList});
+
+    if (event.target.value === ''){
+      this.componentDidMount();
+    }
   }
 
   componentDidMount() {
@@ -28,29 +47,23 @@ export default class Products extends Component {
   render() {
 
     return (
-      <div className="App">
-        <header className="App-header">
+      <Fragment>
+        <header className="product-header">
+          <h1>Hola {getUser()}!</h1>
           <button id="logout" type="button"
-          onClick={() => this.handleLogout()}>
+          onClick={() => this.handleLogout()}
+          className="product-header__logout-buton">
           Logout
           </button>
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
         </header>
-        <section>
+        <section className="product-container">
+        <input type="text" placeholder="Search" 
+        onChange={(event) => this.handleSearchInput(event)}
+        value = {this.state.filterText}/>
         <ListWithLoading isLoading={this.state.loading} 
         products={this.state.products} />
         </section>
-      </div>
+      </Fragment>
     );
   }
 }

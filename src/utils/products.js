@@ -14,7 +14,7 @@ const List = props => {
   if (!products) return null;
   if (!products.length) return (<p>No data, sorry</p>)
   return (
-    <ul>
+    <ul className="product-list">
       {
         products.map(product => {
           return (
@@ -40,5 +40,6 @@ const getProducts = async () => {
     return products.data;
   }
 }
+
 
 export {getProducts, WithLoading, List}
